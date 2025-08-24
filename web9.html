@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre Loans - Your Trusted Loan Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a4f8b;
+            --secondary: #3c78d8;
+            --accent: #ff6b00;
+            --light: #f5f7fa;
+            --dark: #2d3748;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 24px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+        }
+        
+        .logo-img img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Contact Info Bar */
+        .contact-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .contact-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 79, 139, 0.8), rgba(26, 79, 139, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e55f00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            font-size: 36px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* DSA Partner Section */
+        .dsa-partner {
+            padding: 80px 0;
+            background: linear-gradient(to right, #f5f7fa, #e4e8f0);
+        }
+        
+        .dsa-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .dsa-info {
+            padding: 30px;
+        }
+        
+        .dsa-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .benefits-list {
+            margin: 20px 0;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefits-list i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* EMI Calculator Section */
+        .calculator {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .calculator-form {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .calculator-result {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Enquiry Form Section */
+        .enquiry {
+            padding: 80px 0;
+            background: linear-gradient(to right, #f5f7fa, #e4e8f0);
+        }
+        
+        .enquiry-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .enquiry-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .enquiry-info {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .enquiry-form h3, .enquiry-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .enquiry-info h3 {
+            color: white;
+        }
+        
+        .enquiry-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .enquiry-info i {
+            margin-right: 10px;
+            width: 20px;
+            color: var(--accent);
+        }
+        
+        /* Trusted Partners Section */
+        .partners {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .partner-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .features .section-title {
+            color: white;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to right, #f5f7fa, #e4e8f0);
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Form Elements */
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Quick Navigation Buttons */
+        .quick-nav {
+            padding: 40px 0;
+            background-color: var(--primary);
+            text-align: center;
+        }
+        
+        .quick-nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .nav-btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .rep-content, .calculator-container, .enquiry-container, .dsa-container {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .partners-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            Contact us today: <a href="tel:+919029012502"><i class="fas fa-phone"></i> +91 9029012502</a> | 
+            <a href="mailto:prashant.waghode84@gmail.com"><i class="fas fa-envelope"></i> prashant.waghode84@gmail.com</a> |
+            <span><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-img">
+                    <!-- Company Logo -->
+                    <svg width="50" height="50" viewBox="0 0 50 50">
+                        <rect width="50" height="50" fill="#1a4f8b" rx="5" />
+                        <text x="25" y="30" text-anchor="middle" fill="white" font-size="20" font-weight="bold">PL</text>
+                    </svg>
+                </div>
+                <div class="logo-text">PRE <span>LOANS</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#dsa-partner" class="btn">Become a Partner</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Your Dream Loan, Just a Click Away</h1>
+            <p>Pre Loans offers a wide range of financial products to meet your personal and business needs with competitive rates and fast approval.</p>
+            <a href="#contact" class="btn">Apply for Loan</a>
+        </div>
+    </section>
+
+    <!-- Quick Navigation Buttons -->
+    <section class="quick-nav">
+        <div class="container">
+            <div class="quick-nav-buttons">
+                <a href="#home" class="nav-btn"><i class="fas fa-home"></i> Home</a>
+                <a href="#products" class="nav-btn"><i class="fas fa-list"></i> Products</a>
+                <a href="#partners" class="nav-btn"><i class="fas fa-handshake"></i> Partners</a>
+                <a href="#about" class="nav-btn"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="#dsa-partner" class="nav-btn"><i class="fas fa-user-plus"></i> Become a Partner</a>
+                <a href="#contact" class="nav-btn"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DSA Partner Section -->
+    <section class="dsa-partner" id="dsa-partner">
+        <div class="container">
+            <h2 class="section-title">Become a DSA Partner</h2>
+            <div class="dsa-container">
+                <div class="dsa-info">
+                    <h3>Join Our Network of Direct Selling Agents</h3>
+                    <p>As a Pre Loans DSA partner, you'll get access to our wide range of financial products and enjoy industry-best commissions.</p>
+                    
+                    <h4>Benefits of Partnering with Us:</h4>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> High commission rates on all loan products</li>
+                        <li><i class="fas fa-check-circle"></i> Extensive product portfolio</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated support team</li>
+                        <li><i class="fas fa-check-circle"></i> Fast approval process</li>
+                        <li><i class="fas fa-check-circle"></i> Marketing and lead generation support</li>
+                        <li><i class="fas fa-check-circle"></i> Regular training programs</li>
+                        <li><i class="fas fa-check-circle"></i> Online portal for tracking applications</li>
+                    </ul>
+                    
+                    <p>Whether you're an individual agent or a established brokerage, we have partnership options that will help you grow your business.</p>
+                </div>
+                <div class="dsa-form">
+                    <h3>Partner Registration Form</h3>
+                    <form id="partner-registration-form" action="https://formsubmit.co/prashant.waghode84@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New DSA Partner Registration - Pre Loans">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <input type="text" name="name" placeholder="Your Full Name" required>
+                        <input type="email" name="email" placeholder="Your Email Address" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                        <input type="text" name="city" placeholder="Your City" required>
+                        
+                        <select name="experience" required>
+                            <option value="" disabled selected>Years of Experience</option>
+                            <option value="0-1">0-1 Year</option>
+                            <option value="1-3">1-3 Years</option>
+                            <option value="3-5">3-5 Years</option>
+                            <option value="5+">5+ Years</option>
+                        </select>
+                        
+                        <select name="partner-type" required>
+                            <option value="" disabled selected>Type of Partnership</option>
+                            <option value="individual">Individual DSA</option>
+                            <option value="broker">Loan Broker</option>
+                            <option value="agency">Agency</option>
+                            <option value="other">Other</option>
+                        </select>
+                        
+                        <textarea name="message" placeholder="Tell us about your background and why you want to partner with us" required></textarea>
+                        
+                        <button type="submit" class="btn">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Loan Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Home Loan</h3>
+                        <p>Turn your dream home into reality with our flexible home loan options and attractive interest rates.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Personal Loan</h3>
+                        <p>Meet your personal needs with our easy-to-avail personal loans with minimal documentation.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Business Loan</h3>
+                        <p>Fuel your business growth with our customized business loan solutions.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Mortgage Loan</h3>
+                        <p>Leverage your property to get funds for your diverse needs with attractive interest rates.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <h2 class="section-title">Our Trusted Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/SBI_logo.svg/800px-SBI_logo.svg.png" alt="SBI Logo">
+                    </div>
+                    <h3>SBI Bank</h3>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/HDFC_Bank_Logo.svg/800px-HDFC_Bank_Logo.svg.png" alt="HDFC Bank Logo">
+                    </div>
+                    <h3>HDFC Bank</h3>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/ICICI_Bank_Logo.svg/800px-ICICI_Bank_Logo.svg.png" alt="ICICI Bank Logo">
+                    </div>
+                    <h3>ICICI Bank</h3>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Axis_Bank_logo.svg/800px-Axis_Bank_logo.svg.png" alt="Axis Bank Logo">
+                    </div>
+                    <h3>Axis Bank</h3>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kotak_Mahindra_Bank_Logo.svg/800px-Kotak_Mahindra_Bank_Logo.svg.png" alt="Kotak Mahindra Bank Logo">
+                    </div>
+                    <h3>Kotak Bank</h3>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Bajaj_Finserv_Logo_New.svg/800px-Bajaj_Finserv_Logo_New.svg.png" alt="Bajaj Finserv Logo">
+                    </div>
+                    <h3>Bajaj Finserv</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Enquiry Section -->
+    <section class="enquiry" id="contact">
+        <div class="container">
+            <h2 class="section-title">Customer Enquiry</h2>
+            <div class="enquiry-container">
+                <div class="enquiry-form">
+                    <h3>Send us your enquiry</h3>
+                    <form id="customer-enquiry-form" action="https://formsubmit.co/prashant.waghode84@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Loan Enquiry from Pre Loans Website">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                        <select name="loan-type" required>
+                            <option value="" disabled selected>Select Loan Type</option>
+                            <option value="home">Home Loan</option>
+                            <option value="personal">Personal Loan</option>
+                            <option value="business">Business Loan</option>
+                            <option value="car">Car Loan</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Submit Enquiry</button>
+                    </form>
+                </div>
+                <div class="enquiry-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-user"></i> Prashant Waghode</p>
+                    <p><i class="fas fa-phone"></i> +91 9029012502</p>
+                    <p><i class="fas fa-envelope"></i> prashant.waghode84@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                    <p><i class="fas fa-clock"></i> Available: Mon-Sat, 9:30 AM - 6:30 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pre Loans</h3>
+                    <div class="logo" style="justify-content: flex-start; margin-bottom: 15px;">
+                        <div class="logo-img" style="width: 40px; height: 40px;">
+                            <svg width="35" height="35" viewBox="0 0 50 50">
+                                <rect width="50" height="50" fill="#1a4f8b" rx="5" />
+                                <text x="25" y="30" text-anchor="middle" fill="white" font-size="20" font-weight="bold">PL</text>
+                            </svg>
+                        </div>
+                        <div class="logo-text" style="font-size: 20px;">PRE <span>LOANS</span></div>
+                    </div>
+                    <p>Your trusted partner for all kinds of loan requirements. We provide financial solutions tailored to your needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#dsa-partner">Become a Partner</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9029012502</li>
+                        <li><i class="fas fa-envelope"></i> prashant.waghode84@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Pre Loans. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // EMI Calculator Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enquiry Form Handling
+            const enquiryForm = document.getElementById('customer-enquiry-form');
+            enquiryForm.addEventListener('submit', function(e) {
+                // FormSubmit will handle the submission
+                // We'll just show a confirmation message
+                setTimeout(function() {
+                    alert('Thank you for your enquiry! We will contact you shortly.');
+                    enquiryForm.reset();
+                }, 1000);
+            });
+            
+            // Partner Registration Form Handling
+            const partnerForm = document.getElementById('partner-registration-form');
+            partnerForm.addEventListener('submit', function(e) {
+                // FormSubmit will handle the submission
+                // We'll just show a confirmation message
+                setTimeout(function() {
+                    alert('Thank you for your partnership application! We will contact you shortly.');
+                    partnerForm.reset();
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
